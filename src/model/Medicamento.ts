@@ -180,16 +180,16 @@ class Medicamento {
      */
     static async cadastrarMedicamento(medicamento: MedicamentoDTO): Promise<boolean> {
         try {
-            const queryInsertMedicamento = `INSERT INTO clientes (nome, cpf, data_nascimento, email, telefone) VALUES
+            const queryInsertMedicamento = `INSERT INTO Medicamento ( nome, data_validade, princ_ativo, preco, fabricante) VALUES
                                     ($1, $2, $3, $4, $5)
-                                    RETURNING id_medicamento;`;
+                                    RETURNING medicamento_id;`;
 
             const respostaBD = await database.query(queryInsertMedicamento, [
                 medicamento.nome,
-                medicamento.fabricante,
+                medicamento.data_validade,
                 medicamento.princ_ativo,
                 medicamento.preco,
-                medicamento.data_validade
+                medicamento.fabricante
             ]);
 
             if (respostaBD.rows.length > 0) {

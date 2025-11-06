@@ -8,9 +8,9 @@
 );
 
 CREATE TABLE Medicamento (
-    medicamento_id INTEGER GENERATED ALWAYS AS UNIQUE NOT NULL PRIMARY KEY,
-    data_validade DATE NOT NULL,
-	nome VARCHAR(100) NOT NULL,
+    medicamento_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+	data_validade DATE NOT NULL,
     princ_ativo VARCHAR(100) NOT NULL,
     preco DECIMAL NOT NULL,
 	fabricante VARCHAR(100)

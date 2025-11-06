@@ -179,7 +179,7 @@ class Cliente {
      */
     static async cadastrarCliente(cliente: ClienteDTO): Promise<boolean> {
         try {
-            const queryInsertCliente = `INSERT INTO clientes (nome, cpf, data_nascimento, email, telefone)
+            const queryInsertCliente = `INSERT INTO Clientes (nome, cpf, data_nascimento, email, telefone)
                                 VALUES
                                 ($1, $2, $3, $4, $5)
                                 RETURNING id_cliente;`;
